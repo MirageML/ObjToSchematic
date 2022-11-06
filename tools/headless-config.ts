@@ -1,6 +1,7 @@
 import { TextureFiltering } from '../src/texture';
 import { ColourSpace } from '../src/util';
 import { THeadlessConfig } from './headless';
+import { TExporters } from '../src/exporters/exporters';
 
 export const headlessConfig: THeadlessConfig = {
     import: {
@@ -24,7 +25,7 @@ export const headlessConfig: THeadlessConfig = {
     },
     export: {
         filepath: '/tmp/s3/mesh.' + process.argv[4], // Must be an absolute path to the file (can be anywhere)
-        exporter: process.argv[4], // 'schematic' / 'litematic',
+        exporter: process.argv[4] as TExporters, // 'schematic' / 'litematic',
     },
     debug: {
         showLogs: true,
