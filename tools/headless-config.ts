@@ -4,11 +4,11 @@ import { THeadlessConfig } from './headless';
 
 export const headlessConfig: THeadlessConfig = {
     import: {
-        filepath: '/Users/lucasdower/ObjToSchematic/res/samples/skull.obj', // Must be an absolute path
+        filepath: process.argv[2], // Must be an absolute path
     },
     voxelise: {
         voxeliser: 'bvh-ray',
-        desiredHeight: 80,
+        desiredHeight: parseInt(process.argv[3]),
         useMultisampleColouring: false,
         textureFiltering: TextureFiltering.Linear,
         voxelOverlapRule: 'average',
@@ -23,8 +23,8 @@ export const headlessConfig: THeadlessConfig = {
         resolution: 32,
     },
     export: {
-        filepath: '/Users/lucasdower/Documents/out.obj', // Must be an absolute path to the file (can be anywhere)
-        exporter: 'obj', // 'schematic' / 'litematic',
+        filepath: '/tmp/s3/mesh.' + process.argv[4], // Must be an absolute path to the file (can be anywhere)
+        exporter: process.argv[4], // 'schematic' / 'litematic',
     },
     debug: {
         showLogs: true,
