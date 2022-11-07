@@ -9,7 +9,7 @@ export const headlessConfig: THeadlessConfig = {
     },
     voxelise: {
         voxeliser: 'bvh-ray',
-        desiredHeight: parseInt(process.argv[3]),
+        desiredHeight: parseInt(process.argv[4]),
         useMultisampleColouring: false,
         textureFiltering: TextureFiltering.Linear,
         voxelOverlapRule: 'average',
@@ -24,8 +24,8 @@ export const headlessConfig: THeadlessConfig = {
         resolution: 32,
     },
     export: {
-        filepath: '/tmp/s3/mesh.' + process.argv[4], // Must be an absolute path to the file (can be anywhere)
-        exporter: process.argv[4] as TExporters, // 'schematic' / 'litematic',
+        filepath: '/tmp/s3/' + process.argv[3] + '.' + process.argv[5], // Must be an absolute path to the file (can be anywhere)
+        exporter: process.argv[5] as TExporters, // 'schematic' / 'litematic',
     },
     debug: {
         showLogs: true,
